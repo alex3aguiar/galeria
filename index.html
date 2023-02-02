@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title> Gallery Page </title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+  </head> 
+  <body> 
+    <div class="container"> 
+      <div class="row"> 
+        <div class="col-sm-4"> 
+          <div class="card"> 
+            <img src="https://picsum.photos/200/300" class="card-img-top img-item" alt="Image 1" data-img="https://picsum.photos/1000/1500"> 
+            <div class="card-body"> 
+              <p class="card-text"> Image 1 </p> 
+            </div> 
+          </div> 
+        </div> 
+        <div class="col-sm-4"> 
+          <div class="card"> 
+            <img src="https://picsum.photos/200/300" class="card-img-top img-item" alt="Image 2" data-img="https://picsum.photos/1000/1500"> 
+            <div class="card-body"> 
+              <p class="card-text"> Image 2 </p> 
+            </div> 
+          </div> 
+        </div> 
+        <div class="col-sm-4"> 
+          <div class="card"> 
+            <img src="https://picsum.photos/200/300" class="card-img-top img-item" alt="Image 3" data-img="https://picsum.photos/1000/1500"> 
+            <div class="card-body"> 
+              <p class="card-text"> Image 3 </p> 
+            </div> 
+          </div> 
+        </div> 
+        <!-- add more items here --> 
+      </div> 
+    </div> 
+    
+    <!-- Image modal --> 
+    <div id="imgModal" class="modal" tabindex="-1" role="dialog"> 
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document"> 
+        <div class="modal-content"> 
+          <div class="modal-body"> 
+            <img id="modalImg" src="" class="img-fluid"> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+  </body> 
+  
+  <!-- JavaScript to show image modal --> 
+  <script> 
+    const modal = document.getElementById("imgModal"); 
+    const images = document.querySelectorAll(".img-item"); 
+    images.forEach(img => { 
+      img.addEventListener("click", () => { 
+        modal.style.display = "block"; 
+        document.getElementById("modalImg").src = img.getAttribute("data-img"); 
+      }); 
+    }); 
+ 
